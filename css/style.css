@@ -317,6 +317,15 @@ nav.main-nav a.active {
 .doctor-card .qualification { color: var(--color-accent); font-weight: 700; font-size: 13px; margin-bottom: 6px; }
 .doctor-card .specialist { color: var(--color-text-light); font-size: 14px; }
 
+/* ---------------- Patient Testimonials Wrapper Coloring ---------------- */
+.testimonials-slider-container {
+  background: linear-gradient(180deg, #f9fdfd 0%, #ebf5f6 100%); /* Rich soft gradient theme background */
+  border: 1px solid #d4e6e8;
+  border-radius: var(--radius);
+  padding: 25px !important;
+  box-shadow: 0 6px 20px rgba(10, 85, 96, 0.04);
+}
+
 /* ---------------- CTA ---------------- */
 .cta-strip {
   background: var(--color-primary);
@@ -440,4 +449,3 @@ footer.site-footer {
 .whatsapp-btn:hover {
   transform: scale(1.1);
 }
-
