@@ -449,3 +449,9 @@ footer.site-footer {
 .whatsapp-btn:hover {
   transform: scale(1.1);
 }
+/* Gives the Testimonial background the premium matching layout look */
+.section-alt .testimonials-slider-container {
+  background: #ffffff !important; /* Makes the inner review box clean white */
+  border: 1px solid #dbe8ea;
+  box-shadow: 0 4px 15px rgba(10, 85, 96, 0.04);
+}
