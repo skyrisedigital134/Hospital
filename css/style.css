@@ -9,9 +9,10 @@
   --color-text: #1b2a3a;
   --color-text-light: #5b6b78;
   --color-bg: #ffffff;
-  --color-bg-alt: #f4f9fa;
+  --color-bg-alt: #edf6f7; /* Upgraded to a soft, engaging medical background shade */
   --color-border: #e1e8ea;
   --shadow-soft: 0 10px 30px rgba(10, 85, 96, 0.08);
+  --shadow-premium: 0 12px 35px rgba(14, 110, 124, 0.12); /* New interactive layer shadow */
   --radius: 8px;
   --container: 1180px;
 }
@@ -41,7 +42,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 .section { padding: 70px 0; }
-.section-alt { background: var(--color-bg-alt); }
+.section-alt { background: var(--color-bg-alt); border-top: 1px solid #e1eff2; border-bottom: 1px solid #e1eff2; }
 
 .section-title {
   text-align: center;
@@ -212,34 +213,44 @@ nav.main-nav a.active {
 .welcome-grid img { border-radius: var(--radius); box-shadow: var(--shadow-soft); }
 .welcome-grid h2 { color: var(--color-primary-dark); font-size: 28px; margin-top: 0; }
 
-/* ---------------- Why choose us ---------------- */
+/* ---------------- Why choose us (Upgraded Modern Layout) ---------------- */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 .feature-card {
-  background: #fff;
-  border: 1px solid var(--color-border);
+  background: #ffffff; /* Contrast beautifully against the new section background */
+  border: 1px solid #dbe8ea;
   border-radius: var(--radius);
-  padding: 30px 22px;
+  padding: 32px 22px;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(10, 85, 96, 0.04);
 }
-.feature-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-soft); }
+.feature-card:hover { 
+  transform: translateY(-8px); 
+  box-shadow: var(--shadow-premium); 
+  border-color: var(--color-primary);
+}
 .feature-icon {
-  width: 60px; height: 60px;
-  margin: 0 auto 16px;
+  width: 65px; height: 65px;
+  margin: 0 auto 18px;
   border-radius: 50%;
-  background: var(--color-bg-alt);
+  background: rgba(14, 110, 124, 0.1); /* Transparent tint matching brand colors */
   display: flex; align-items: center; justify-content: center;
-  font-size: 26px;
+  font-size: 28px;
   color: var(--color-primary);
+  transition: background 0.3s ease;
 }
-.feature-card h3 { font-size: 17px; margin: 0 0 8px; color: var(--color-primary-dark); }
-.feature-card p { font-size: 14px; color: var(--color-text-light); margin: 0; }
+.feature-card:hover .feature-icon {
+  background: var(--color-primary);
+  color: #fff;
+}
+.feature-card h3 { font-size: 18px; margin: 0 0 10px; color: var(--color-primary-dark); }
+.feature-card p { font-size: 14px; color: var(--color-text-light); margin: 0; line-height: 1.5; }
 
-/* ---------------- Services grid ---------------- */
+/* ---------------- Services grid (Upgraded Modern Theme Layout) ---------------- */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -250,19 +261,39 @@ nav.main-nav a.active {
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--color-border);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease;
 }
-.service-card:hover { box-shadow: var(--shadow-soft); transform: translateY(-4px); }
+.service-card:hover { 
+  box-shadow: var(--shadow-premium); 
+  transform: translateY(-6px);
+  border-color: var(--color-primary-dark);
+}
 .service-card .icon-wrap {
-  background: var(--color-bg-alt);
-  padding: 28px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); /* Gorgeous colored header background */
+  padding: 32px;
   text-align: center;
-  font-size: 34px;
+  font-size: 38px;
+  color: #fff;
+  transition: opacity 0.3s ease;
 }
-.service-card .body { padding: 20px 22px 26px; }
-.service-card h3 { font-size: 17px; margin: 0 0 10px; color: var(--color-primary-dark); }
-.service-card p { font-size: 14px; color: var(--color-text-light); margin: 0 0 14px; }
-.service-card .read-more { font-weight: 700; color: var(--color-accent); font-size: 13px; }
+.service-card:hover .icon-wrap {
+  opacity: 0.95;
+}
+.service-card .body { padding: 24px 22px 28px; background: #ffffff; }
+.service-card h3 { font-size: 19px; margin: 0 0 12px; color: var(--color-primary-dark); font-weight: 700; }
+.service-card p { font-size: 14px; color: var(--color-text-light); margin: 0 0 16px; line-height: 1.6; }
+.service-card .read-more { 
+  font-weight: 700; 
+  color: var(--color-primary); 
+  font-size: 13px; 
+  display: inline-block;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.service-card .read-more:hover {
+  color: var(--color-accent);
+  transform: translateX(3px);
+}
 
 /* ---------------- Doctors ---------------- */
 .doctors-grid {
@@ -388,6 +419,7 @@ footer.site-footer {
   .footer-grid { grid-template-columns: 1fr; }
   .cta-strip .container { flex-direction: column; text-align: center; }
 }
+
 .whatsapp-btn {
   position: fixed;
   bottom: 20px;
@@ -405,7 +437,7 @@ footer.site-footer {
   height: 100%;
 }
 
-/* होवर करने पर थोड़ा ज़ूम होगा */
 .whatsapp-btn:hover {
   transform: scale(1.1);
 }
+
