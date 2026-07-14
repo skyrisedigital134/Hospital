@@ -19,37 +19,72 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 4500);
   }
 
-  // WhatsApp Form Redirection Logic
+  // WhatsApp Form Redirection Logic (Checks if form exists on page)
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
-      // Prevent standard form submission behavior
       e.preventDefault();
 
-      // Hospital WhatsApp number with country code (91), no symbols or spaces
+      // Primary Hospital Number
       var whatsappNumber = "917505348664";
 
-      // Grab data from input fields
       var name = document.getElementById('name').value;
       var email = document.getElementById('email').value;
       var phone = document.getElementById('phone').value;
       var message = document.getElementById('message').value;
 
-      // Construct beautifully formatted message text using WhatsApp bold formatting (*)
       var textMessage = "*🏥 New Prem Ji Hospital Inquiry*\n\n" +
                         "• *Name:* " + name + "\n" +
                         "• *Email:* " + email + "\n" +
                         "• *Phone:* " + phone + "\n\n" +
                         "*Message:* \n" + message;
 
-      // URL encode the message string safely
       var encodedMessage = encodeURIComponent(textMessage);
-
-      // Construct the final URL endpoint
       var whatsappUrl = "https://api.whatsapp.com/send?phone=" + whatsappNumber + "&text=" + encodedMessage;
 
-      // Open link in a new tab/application smoothly
       window.open(whatsappUrl, '_blank');
     });
+  }
+
+  // Testimonials Slider Logic
+  var track = document.querySelector('.testimonials-track');
+  var slideItems = document.querySelectorAll('.testimonial-slide-item');
+  var prevBtn = document.getElementById('prevTestimonial');
+  var nextBtn = document.getElementById('nextTestimonial');
+
+  if (track && slideItems.length > 0 && prevBtn && nextBtn) {
+    var testimonialIndex = 0;
+    var totalSlides = slideItems.length;
+
+    function updateTestimonialSlider() {
+      // Moves the slider container track sideways based on current index status
+      var percentageTranslate = -testimonialIndex * 100;
+      track.style.transform = 'translateX(' + percentageTranslate + '%)';
+    }
+
+    nextBtn.addEventListener('click', function () {
+      testimonialIndex++;
+      if (testimonialIndex >= totalSlides) {
+        testimonialIndex = 0; // Loop back around cleanly to first review item
+      }
+      updateTestimonialSlider();
+    });
+
+    prevBtn.addEventListener('click', function () {
+      testimonialIndex--;
+      if (testimonialIndex < 0) {
+        testimonialIndex = totalSlides - 1; // Loop backwards to final review card item
+      }
+      updateTestimonialSlider();
+    });
+
+    // Optional: Setup auto slide rotation for reviews every 6 seconds
+    setInterval(function () {
+      testimonialIndex++;
+      if (testimonialIndex >= totalSlides) {
+        testimonialIndex = 0;
+      }
+      updateTestimonialSlider();
+    }, 6000);
   }
 });
