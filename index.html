@@ -66,28 +66,36 @@
   </div>
 </section>
 
-<!-- Achievements and Media Recognition Section -->
+<!-- Updated Achievements and Media Recognition Section (Now a Slider) -->
 <section class="section section-alt">
   <div class="container">
     <h2 class="section-title">Achievements and Media Recognition</h2>
     <p class="section-subtitle">Our milestones and features in leading medical publications and news media.</p>
     
-    <div class="achievements-static-grid" style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-top: 30px;">
-      
-      <!-- Photo 1 -->
-      <div class="achievement-block" style="flex: 1; min-width: 280px; max-width: 420px; box-sizing: border-box;">
-        <div style="background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #eaeaea; transition: transform 0.3s ease;">
-          <img src="images/achievement1[1].png" alt="Achievement 1" style="width: 100%; height: auto; max-height: 450px; object-fit: contain; border-radius: 6px; display: block;">
+    <div class="achievements-slider-container" style="position: relative; overflow: hidden; max-width: 900px; margin: 30px auto 0 auto; padding: 10px;">
+      <div class="achievements-track" style="display: flex; transition: transform 0.5s ease-in-out; gap: 0;">
+        
+        <!-- Slide 1 -->
+        <div class="achievement-slide-item" style="min-width: 100%; box-sizing: border-box; padding: 10px;">
+          <div style="background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #eaeaea; text-align: center;">
+            <img src="images/achievement1[1].png" alt="Achievement 1" style="max-width: 100%; height: auto; max-height: 450px; object-fit: contain; border-radius: 6px; display: inline-block;">
+          </div>
         </div>
+
+        <!-- Slide 2 -->
+        <div class="achievement-slide-item" style="min-width: 100%; box-sizing: border-box; padding: 10px;">
+          <div style="background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #eaeaea; text-align: center;">
+            <img src="images/achievement2[1].png" alt="Achievement 2" style="max-width: 100%; height: auto; max-height: 450px; object-fit: contain; border-radius: 6px; display: inline-block;">
+          </div>
+        </div>
+
       </div>
 
-      <!-- Photo 2 -->
-      <div class="achievement-block" style="flex: 1; min-width: 280px; max-width: 420px; box-sizing: border-box;">
-        <div style="background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #eaeaea; transition: transform 0.3s ease;">
-          <img src="images/achievement2[1].png" alt="Achievement 2" style="width: 100%; height: auto; max-height: 450px; object-fit: contain; border-radius: 6px; display: block;">
-        </div>
+      <!-- Achievement Slider Navigation Buttons -->
+      <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+        <button id="prevAchievement" style="background: #333; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1rem;">←</button>
+        <button id="nextAchievement" style="background: #333; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1rem;">→</button>
       </div>
-
     </div>
   </div>
 </section>
@@ -122,7 +130,7 @@
   </div>
 </section>
 
-<!-- Updated Key Services Section -->
+<!-- Key Services Section -->
 <section class="section section-alt">
   <div class="container">
     <h2 class="section-title">Our Key Services</h2>
@@ -295,7 +303,7 @@
   </div>
 </section>
 
-<!-- Updated Testimonials Section -->
+<!-- Testimonials Section -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">Patient Testimonials</h2>
