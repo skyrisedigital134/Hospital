@@ -179,34 +179,23 @@
     <h2 class="section-title">Achievements and Media Recognition</h2>
     <p class="section-subtitle">Our milestones and features in leading medical publications and news media.</p>
     
-    <!-- Added width restraint and forced child overflow visibility configuration -->
-    <div class="achievements-slider-container" style="position: relative; overflow: hidden; max-width: 600px; margin: 30px auto 0 auto; padding: 10px;">
+    <!-- Clean grid layout that displays side-by-side on desktop and rolls over smoothly on mobile -->
+    <div class="achievements-static-grid" style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-top: 30px;">
       
-      <!-- FIX: Added width: 200% (since there are 2 slides) so the track expands to hold them side-by-side -->
-      <div class="achievements-track" style="display: flex; width: 200%; transition: transform 0.5s ease-in-out; gap: 0;">
-        
-        <!-- FIX: Added width: 100% so each item occupies exactly half of the 200% parent track (1 full screen width) -->
-        <!-- Slide 1 (Photo 1) -->
-        <div class="achievement-slide-item" style="width: 100%; min-width: 50%; box-sizing: border-box; padding: 10px; text-align: center;">
-          <div style="background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #eaeaea;">
-            <img src="images/achievement1[1].png" alt="Achievement 1" style="width: 100%; height: auto; max-height: 400px; object-fit: contain; border-radius: 6px; display: block; margin: 0 auto;">
-          </div>
+      <!-- Photo 1 -->
+      <div class="achievement-block" style="flex: 1; min-width: 280px; max-width: 420px; box-sizing: border-box;">
+        <div style="background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #eaeaea; transition: transform 0.3s ease;">
+          <img src="images/achievement1.png" alt="Achievement 1" style="width: 100%; height: auto; max-height: 450px; object-fit: contain; border-radius: 6px; display: block;">
         </div>
-
-        <!-- Slide 2 (Photo 2) -->
-        <div class="achievement-slide-item" style="width: 100%; min-width: 50%; box-sizing: border-box; padding: 10px; text-align: center;">
-          <div style="background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #eaeaea;">
-            <img src="images/achievement2[1].png" alt="Achievement 2" style="width: 100%; height: auto; max-height: 400px; object-fit: contain; border-radius: 6px; display: block; margin: 0 auto;">
-          </div>
-        </div>
-
       </div>
 
-      <!-- Slider Navigation Buttons -->
-      <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
-        <button id="prevAchievement" style="background: #333; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1rem;">←</button>
-        <button id="nextAchievement" style="background: #333; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1rem;">→</button>
+      <!-- Photo 2 -->
+      <div class="achievement-block" style="flex: 1; min-width: 280px; max-width: 420px; box-sizing: border-box;">
+        <div style="background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #eaeaea; transition: transform 0.3s ease;">
+          <img src="images/achievement2.png" alt="Achievement 2" style="width: 100%; height: auto; max-height: 450px; object-fit: contain; border-radius: 6px; display: block;">
+        </div>
       </div>
+
     </div>
   </div>
 </section>
