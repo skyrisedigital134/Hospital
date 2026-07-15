@@ -46,47 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Achievements Slider Logic
-  var achieveTrack = document.querySelector('.achievements-track');
-  var achieveItems = document.querySelectorAll('.achievement-slide-item');
-  var achievePrevBtn = document.getElementById('prevAchievement');
-  var achieveNextBtn = document.getElementById('nextAchievement');
-
-  if (achieveTrack && achieveItems.length > 0 && achievePrevBtn && achieveNextBtn) {
-    var achieveIndex = 0;
-    var totalAchieveSlides = achieveItems.length;
-
-    function updateAchievementSlider() {
-      var percentageTranslate = -achieveIndex * 100;
-      achieveTrack.style.transform = 'translateX(' + percentageTranslate + '%)';
-    }
-
-    achieveNextBtn.addEventListener('click', function () {
-      achieveIndex++;
-      if (achieveIndex >= totalAchieveSlides) {
-        achieveIndex = 0; // Loop back to the first media item
-      }
-      updateAchievementSlider();
-    });
-
-    achievePrevBtn.addEventListener('click', function () {
-      achieveIndex--;
-      if (achieveIndex < 0) {
-        achieveIndex = totalAchieveSlides - 1; // Loop back to the last media item
-      }
-      updateAchievementSlider();
-    });
-
-    // Auto rotate achievements photos every 5 seconds
-    setInterval(function () {
-      achieveIndex++;
-      if (achieveIndex >= totalAchieveSlides) {
-        achieveIndex = 0;
-      }
-      updateAchievementSlider();
-    }, 5000);
-  }
-
   // Testimonials Slider Logic
   var track = document.querySelector('.testimonials-track');
   var slideItems = document.querySelectorAll('.testimonial-slide-item');
@@ -98,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var totalSlides = slideItems.length;
 
     function updateTestimonialSlider() {
-      // Moves the slider container track sideways based on current index status
       var percentageTranslate = -testimonialIndex * 100;
       track.style.transform = 'translateX(' + percentageTranslate + '%)';
     }
@@ -106,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
     nextBtn.addEventListener('click', function () {
       testimonialIndex++;
       if (testimonialIndex >= totalSlides) {
-        testimonialIndex = 0; // Loop back around cleanly to first review item
+        testimonialIndex = 0;
       }
       updateTestimonialSlider();
     });
@@ -114,12 +72,11 @@ document.addEventListener('DOMContentLoaded', function () {
     prevBtn.addEventListener('click', function () {
       testimonialIndex--;
       if (testimonialIndex < 0) {
-        testimonialIndex = totalSlides - 1; // Loop backwards to final review card item
+        testimonialIndex = totalSlides - 1;
       }
       updateTestimonialSlider();
     });
 
-    // Setup auto slide rotation for reviews every 6 seconds
     setInterval(function () {
       testimonialIndex++;
       if (testimonialIndex >= totalSlides) {
