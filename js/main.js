@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+Document.addEventListener('DOMContentLoaded', function () {
   // Mobile nav toggle
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.main-nav');
@@ -43,38 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
       var whatsappUrl = "https://api.whatsapp.com/send?phone=" + whatsappNumber + "&text=" + encodedMessage;
 
       window.open(whatsappUrl, '_blank');
-    });
-  }
-
-  // Achievements / Latest News Slider Logic
-  var achievementTrack = document.querySelector('.achievements-track');
-  var achievementSlides = document.querySelectorAll('.achievement-slide-item');
-  var prevAchievementBtn = document.getElementById('prevAchievement');
-  var nextAchievementBtn = document.getElementById('nextAchievement');
-
-  if (achievementTrack && achievementSlides.length > 0 && prevAchievementBtn && nextAchievementBtn) {
-    var achievementIndex = 0;
-    var totalAchievements = achievementSlides.length;
-
-    function updateAchievementSlider() {
-      var percentageTranslate = -achievementIndex * 100;
-      achievementTrack.style.transform = 'translateX(' + percentageTranslate + '%)';
-    }
-
-    nextAchievementBtn.addEventListener('click', function () {
-      achievementIndex++;
-      if (achievementIndex >= totalAchievements) {
-        achievementIndex = 0;
-      }
-      updateAchievementSlider();
-    });
-
-    prevAchievementBtn.addEventListener('click', function () {
-      achievementIndex--;
-      if (achievementIndex < 0) {
-        achievementIndex = totalAchievements - 1;
-      }
-      updateAchievementSlider();
     });
   }
 
