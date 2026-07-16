@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Mobile nav toggle
+  
+  // 1. Mobile nav toggle
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.main-nav');
   if (toggle && nav) {
@@ -8,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Hero slider (if present)
+  // 2. Hero slider (if present)
   var slides = document.querySelectorAll('.hero .slide');
-  if (slides.length > 1) {
+  if (slides && slides.length > 1) {
     var current = 0;
     setInterval(function () {
       slides[current].classList.remove('active');
@@ -19,15 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 4500);
   }
 
-  // WhatsApp Form Redirection Logic (Checks if form exists on page)
+  // 3. WhatsApp Form Redirection Logic
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-
-      // Primary Hospital Number
       var whatsappNumber = "917505348664";
-
       var name = document.getElementById('name').value;
       var email = document.getElementById('email').value;
       var phone = document.getElementById('phone').value;
@@ -41,12 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       var encodedMessage = encodeURIComponent(textMessage);
       var whatsappUrl = "https://api.whatsapp.com/send?phone=" + whatsappNumber + "&text=" + encodedMessage;
-
       window.open(whatsappUrl, '_blank');
     });
   }
 
-  // Achievements / Latest News Slider Logic
+  // 4. Achievements / Latest News Slider Logic
   var achievementTrack = document.querySelector('.achievements-track');
   var achievementSlides = document.querySelectorAll('.achievement-slide-item');
   var prevAchievementBtn = document.getElementById('prevAchievement');
@@ -78,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Testimonials Slider Logic
+  // 5. Testimonials Slider Logic
   var track = document.querySelector('.testimonials-track');
   var slideItems = document.querySelectorAll('.testimonial-slide-item');
   var prevBtn = document.getElementById('prevTestimonial');
@@ -118,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 6000);
   }
 
-  // Video Slider Logic
+  // 6. Video Slider Logic
   var videoTrack = document.querySelector('.videos-track');
   var videoSlides = document.querySelectorAll('.video-slide-item');
   var prevVideoBtn = document.getElementById('prevVideo');
@@ -129,12 +126,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var totalVideos = videoSlides.length;
 
     function updateVideoSlider() {
-      // Pause any currently playing video when sliding
       videoSlides.forEach(function(slide) {
         var vid = slide.querySelector('video');
         if (vid) vid.pause();
       });
-      
       var percentageTranslate = -videoIndex * 100;
       videoTrack.style.transform = 'translateX(' + percentageTranslate + '%)';
     }
