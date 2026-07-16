@@ -1,5 +1,6 @@
-Document.addEventListener('DOMContentLoaded', function () {
-  // Mobile nav toggle
+document.addEventListener('DOMContentLoaded', function () {
+  
+  // 1. Mobile nav toggle
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.main-nav');
   if (toggle && nav) {
@@ -8,9 +9,9 @@ Document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Hero slider (if present)
+  // 2. Hero slider (if present)
   var slides = document.querySelectorAll('.hero .slide');
-  if (slides.length > 1) {
+  if (slides && slides.length > 1) {
     var current = 0;
     setInterval(function () {
       slides[current].classList.remove('active');
@@ -19,15 +20,12 @@ Document.addEventListener('DOMContentLoaded', function () {
     }, 4500);
   }
 
-  // WhatsApp Form Redirection Logic (Checks if form exists on page)
+  // 3. WhatsApp Form Redirection Logic
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-
-      // Primary Hospital Number
       var whatsappNumber = "917505348664";
-
       var name = document.getElementById('name').value;
       var email = document.getElementById('email').value;
       var phone = document.getElementById('phone').value;
@@ -41,52 +39,84 @@ Document.addEventListener('DOMContentLoaded', function () {
 
       var encodedMessage = encodeURIComponent(textMessage);
       var whatsappUrl = "https://api.whatsapp.com/send?phone=" + whatsappNumber + "&text=" + encodedMessage;
-
       window.open(whatsappUrl, '_blank');
     });
   }
 
-  // Testimonials Slider Logic
-  var track = document.querySelector('.testimonials-track');
-  var slideItems = document.querySelectorAll('.testimonial-slide-item');
-  var prevBtn = document.getElementById('prevTestimonial');
-  var nextBtn = document.getElementById('nextTestimonial');
+  // 4. Achievements / Latest News Slider Logic
+  var achievementTrack = document.querySelector('.achievements-track');
+  var achievementSlides = document.querySelectorAll('.achievement-slide-item');
+  var prevAchievementBtn = document.getElementById('prevAchievement');
+  var nextAchievementBtn = document.getElementById('nextAchievement');
 
-  if (track && slideItems.length > 0 && prevBtn && nextBtn) {
+  if (achievementTrack && achievementSlides.length > 0 && prevAchievementBtn && nextAchievementBtn) {
+    var achievementIndex = 0;
+    var totalAchievements = achievementSlides.length;
+
+    function updateAchievementSlider() {
+      var percentageTranslate = -achievementIndex * 100;
+      achievementTrack.style.transform = 'translateX(' + percentageTranslate + '%)';
+    }
+
+    nextAchievementBtn.addEventListener('click', function () {
+      achievementIndex++;
+      if (achievementIndex >= totalAchievements) {
+        achievementIndex = 0;
+      }
+      updateAchievementSlider();
+    });
+
+    prevAchievementBtn.addEventListener('click', function () {
+      achievementIndex--;
+      if (achievementIndex < 0) {
+        achievementIndex = totalAchievements - 1;
+      }
+      updateAchievementSlider();
+    });
+  }
+
+  // 5. Testimonials Slider Logic
+  var testimonialTrack = document.querySelector('.testimonials-track');
+  var testimonialSlides = document.querySelectorAll('.testimonial-slide-item');
+  var prevTestimonialBtn = document.getElementById('prevTestimonial');
+  var nextTestimonialBtn = document.getElementById('nextTestimonial');
+
+  if (testimonialTrack && testimonialSlides.length > 0 && prevTestimonialBtn && nextTestimonialBtn) {
     var testimonialIndex = 0;
-    var totalSlides = slideItems.length;
+    var totalTestimonials = testimonialSlides.length;
 
     function updateTestimonialSlider() {
       var percentageTranslate = -testimonialIndex * 100;
-      track.style.transform = 'translateX(' + percentageTranslate + '%)';
+      testimonialTrack.style.transform = 'translateX(' + percentageTranslate + '%)';
     }
 
-    nextBtn.addEventListener('click', function () {
+    nextTestimonialBtn.addEventListener('click', function () {
       testimonialIndex++;
-      if (testimonialIndex >= totalSlides) {
+      if (testimonialIndex >= totalTestimonials) {
         testimonialIndex = 0;
       }
       updateTestimonialSlider();
     });
 
-    prevBtn.addEventListener('click', function () {
+    prevTestimonialBtn.addEventListener('click', function () {
       testimonialIndex--;
       if (testimonialIndex < 0) {
-        testimonialIndex = totalSlides - 1;
+        testimonialIndex = totalTestimonials - 1;
       }
       updateTestimonialSlider();
     });
 
+    // Auto rotate testimonials
     setInterval(function () {
       testimonialIndex++;
-      if (testimonialIndex >= totalSlides) {
+      if (testimonialIndex >= totalTestimonials) {
         testimonialIndex = 0;
       }
       updateTestimonialSlider();
     }, 6000);
   }
 
-  // Video Slider Logic
+  // 6. Video Slider Logic
   var videoTrack = document.querySelector('.videos-track');
   var videoSlides = document.querySelectorAll('.video-slide-item');
   var prevVideoBtn = document.getElementById('prevVideo');
@@ -97,12 +127,10 @@ Document.addEventListener('DOMContentLoaded', function () {
     var totalVideos = videoSlides.length;
 
     function updateVideoSlider() {
-      // Pause any currently playing video when sliding
       videoSlides.forEach(function(slide) {
         var vid = slide.querySelector('video');
         if (vid) vid.pause();
       });
-      
       var percentageTranslate = -videoIndex * 100;
       videoTrack.style.transform = 'translateX(' + percentageTranslate + '%)';
     }
