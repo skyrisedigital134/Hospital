@@ -9,10 +9,10 @@
   --color-text: #1b2a3a;
   --color-text-light: #5b6b78;
   --color-bg: #ffffff;
-  --color-bg-alt: #edf6f7; /* Upgraded to a soft, engaging medical background shade */
+  --color-bg-alt: #edf6f7;
   --color-border: #e1e8ea;
   --shadow-soft: 0 10px 30px rgba(10, 85, 96, 0.08);
-  --shadow-premium: 0 12px 35px rgba(14, 110, 124, 0.12); /* New interactive layer shadow */
+  --shadow-premium: 0 12px 35px rgba(14, 110, 124, 0.12);
   --radius: 8px;
   --container: 1180px;
 }
@@ -213,14 +213,14 @@ nav.main-nav a.active {
 .welcome-grid img { border-radius: var(--radius); box-shadow: var(--shadow-soft); }
 .welcome-grid h2 { color: var(--color-primary-dark); font-size: 28px; margin-top: 0; }
 
-/* ---------------- Why choose us (Upgraded Modern Layout) ---------------- */
+/* ---------------- Why choose us ---------------- */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 .feature-card {
-  background: #ffffff; /* Contrast beautifully against the new section background */
+  background: #ffffff;
   border: 1px solid #dbe8ea;
   border-radius: var(--radius);
   padding: 32px 22px;
@@ -237,7 +237,7 @@ nav.main-nav a.active {
   width: 65px; height: 65px;
   margin: 0 auto 18px;
   border-radius: 50%;
-  background: rgba(14, 110, 124, 0.1); /* Transparent tint matching brand colors */
+  background: rgba(14, 110, 124, 0.1);
   display: flex; align-items: center; justify-content: center;
   font-size: 28px;
   color: var(--color-primary);
@@ -250,7 +250,7 @@ nav.main-nav a.active {
 .feature-card h3 { font-size: 18px; margin: 0 0 10px; color: var(--color-primary-dark); }
 .feature-card p { font-size: 14px; color: var(--color-text-light); margin: 0; line-height: 1.5; }
 
-/* ---------------- Services grid (Upgraded Modern Theme Layout) ---------------- */
+/* ---------------- Services grid ---------------- */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -270,7 +270,6 @@ nav.main-nav a.active {
   border-color: var(--color-primary-dark);
 }
 .service-card .icon-wrap {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); /* Gorgeous colored header background */
   padding: 32px;
   text-align: center;
   font-size: 38px;
@@ -316,15 +315,6 @@ nav.main-nav a.active {
 .doctor-card h3 { margin: 0 0 4px; color: var(--color-primary-dark); font-size: 20px; }
 .doctor-card .qualification { color: var(--color-accent); font-weight: 700; font-size: 13px; margin-bottom: 6px; }
 .doctor-card .specialist { color: var(--color-text-light); font-size: 14px; }
-
-/* ---------------- Patient Testimonials Wrapper Coloring ---------------- */
-.testimonials-slider-container {
-  background: linear-gradient(180deg, #f9fdfd 0%, #ebf5f6 100%); /* Rich soft gradient theme background */
-  border: 1px solid #d4e6e8;
-  border-radius: var(--radius);
-  padding: 25px !important;
-  box-shadow: 0 6px 20px rgba(10, 85, 96, 0.04);
-}
 
 /* ---------------- CTA ---------------- */
 .cta-strip {
@@ -401,6 +391,49 @@ footer.site-footer {
   color: #9ec7cb;
 }
 
+/* ---------------- Absolute Slider Fixes Core Layout ---------------- */
+.achievements-slider-container,
+.videos-slider-container,
+.testimonials-slider-container {
+  position: relative;
+  overflow: hidden !important;
+  width: 100%;
+}
+
+.achievements-track,
+.videos-track,
+.testimonials-track {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.achievement-slide-item,
+.video-slide-item,
+.testimonial-slide-item {
+  min-width: 100% !important;
+  max-width: 100% !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Section styling refinements */
+.testimonials-slider-container {
+  background: linear-gradient(180deg, #f9fdfd 0%, #ebf5f6 100%);
+  border: 1px solid #d4e6e8;
+  border-radius: var(--radius);
+  padding: 25px !important;
+  box-shadow: 0 6px 20px rgba(10, 85, 96, 0.04);
+}
+
+.section-alt .testimonials-slider-container {
+  background: #ffffff !important;
+  border: 1px solid #dbe8ea;
+  box-shadow: 0 4px 15px rgba(10, 85, 96, 0.04);
+}
+
 /* ---------------- Responsive ---------------- */
 @media (max-width: 900px) {
   .welcome-grid,
@@ -440,18 +473,5 @@ footer.site-footer {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
-
-.whatsapp-btn img {
-  width: 100%;
-  height: 100%;
-}
-
-.whatsapp-btn:hover {
-  transform: scale(1.1);
-}
-/* Gives the Testimonial background the premium matching layout look */
-.section-alt .testimonials-slider-container {
-  background: #ffffff !important; /* Makes the inner review box clean white */
-  border: 1px solid #dbe8ea;
-  box-shadow: 0 4px 15px rgba(10, 85, 96, 0.04);
-}
+.whatsapp-btn img { width: 100%; height: 100%; }
+.whatsapp-btn:hover { transform: scale(1.1); }
